@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Final-project : Final project 403266" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Final-project</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ziofab/final-project">View on GitHub</a>
+
+          <h1 id="project_title">Final-project</h1>
+          <h2 id="project_tagline">Final project 403266</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ziofab/final-project/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ziofab/final-project/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1><strong>Leonardo's central-plan church</strong></h1>
+
+<p>The object of this project is to model a <em>Leonardo's central-plan church</em> with <a href="http://cvdlab.github.com/plasm.js">plasm.js</a></p>
+
+<p><img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/00026_02.jpg" alt="Model of a Leonardo's central-plan church"></p>
+
+<hr><p>The entire code of this project is in <a href="https://raw.github.com/cvdlab-cg/403266/master/final-project/LeonardoCentralPlanChurch.js">LeonardoCentralPlanChurch.js</a></p>
+
+<p>The code is organized in three parts:
+1. first one is the declaration of all variables that basically controls the dimensions and some shaping (for instance, the number of ribs in the cupolas);
+2. the second one is the declaration of all functions that are subsequently used;
+3. the last part is the core part, that use the precedent definitions to reach the project goal.</p>
+
+<p>The core part is subdivided into three phase: 1. Building of the structures; 2. Insert into plasm model, scale and place each structure; 3. Show the result.</p>
+
+<hr><p>I searched information about Leonardo's central-plan churchs, but I didn't find detailed plants. So I just tried to build the model in the first photo (that is one the few with large amount of pixels. <a href="http://www.museoscienza.org/dipartimenti/catalogo_collezioni/scheda_oggetto.asp?idk_in=ST070-00051&amp;arg=Leonardo">Found here (italian page)</a></p>
+
+<hr><p>The more complex function is BuildRibbedCupola() that can build a model of a cupola with rib (and can generate part of cupola), and can generate Round Arch and other kind of arch simply varing a parameter. This function has been used to generate the five cupolas that are round arch, and the top above the main cupola is a cupola with  Lancet Arch with 16 ribs.</p>
+
+<p>Another complex function is FillPolys() that combines a sequence of polygons two by two: creates an edge between the n-th vertex in the first polygon and the n-th vertex in the second polygon, and then fills these newly created faces. Furthermore, also fills the face formed by the first and the last polygon. Anyway I found that this kind of implementation is too computational intensive for plasm.js, it should be coded better.</p>
+
+<p>In the phase that show the result I used the object p.controls.controls.object.position to control the position (x,y,z) of the camera (the point of view).
+If the debugging variable doshow is set to true and the frame per second of the viewer are high enough then it is possibile to view a construction piece by piece of the building, because of the technique used to generate the model: an array of plasm models, that are shown, using setTimeout() technique, one by one every 500 ms (the value of the variable "time").</p>
+
+<hr><p>The project is not finished yet, but I used a lot of the tecniques learned during the course of Computational Graphics</p>
+
+<hr><h3>Screen shots</h3>
+
+<p>Screen shot of the central plan church modeled
+<img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/screen-shot/CentralPlan_0.png" alt=""></p>
+
+<p>Inside the main cupola, looking down
+<img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/screen-shot/CentralPlan_Inside_MainCupola.png" alt=""></p>
+
+<p>Under the main cupola, looking up
+<img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/screen-shot/CentralPlan_Under_MainCupola.png" alt=""></p>
+
+<p>Under one minor cupola, looking up-left, it is visible the rotating columns, one minor cupola and an error of building in the roof (the fast solution of two CUBOID() doesn't completely has resolved, and I have no more time to completely resolve it!).
+<img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/screen-shot/CentralPlan_Under_MiniCupola.png" alt=""></p>
+
+<p>Simplified model, less computational intensive
+<img src="https://github.com/cvdlab-cg/403266/raw/master/final-project/screen-shot/CentralPlan_simply0.png" alt=""></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Final-project maintained by <a href="https://github.com/ziofab">ziofab</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
